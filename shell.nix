@@ -4,8 +4,7 @@ stdenv.mkDerivation rec {
   name = "ish";
   env = buildEnv { name = name; paths = buildInputs; };
   buildInputs = [
-    (python37.withPackages (pypkgs: [ pypkgs.pip pypkgs.virtualenv ]))
-    pipenv
+    python38
     ninja
     meson
     llvm

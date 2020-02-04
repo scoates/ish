@@ -1,0 +1,10 @@
+#!/bin/bash
+
+unset MACOS_DEPLOYMENT_TARGET
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+. ~/.nix-profile/etc/profile.d/nix.sh
+export NIX_IGNORE_SYMLINK_STORE=1
+export PATH=$PATH:~/.nix-profile/bin
+
+nix-shell $DIR/shell.nix --run "$*"
